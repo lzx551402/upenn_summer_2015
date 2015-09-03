@@ -1,0 +1,13 @@
+function [paraL,paraR]=postProsessing(ciL,ciR,fc,cc)
+phiL=ciL(5)*180/pi;
+phiR=ciR(5)*180/pi;
+taoL=acos(ciL(4)/ciL(3))*180/pi;
+taoR=acos(ciR(4)/ciR(3))*180/pi;
+dL=5.5*(fc(1)+fc(2))/2/ciL(3);
+dR=5.5*(fc(1)+fc(2))/2/ciR(3);
+xL=dL*(ciL(2)-cc(1))/fc(1);
+xR=dR*(ciR(2)-cc(1))/fc(1);
+yL=dL*(ciL(1)-cc(2))/fc(2);
+yR=dR*(ciR(1)-cc(2))/fc(2);
+paraL=[xL,yL,dL,phiL,taoL];
+paraR=[xR,yR,dR,phiR,taoR];
